@@ -34,10 +34,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-all duration-300">
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center space-x-2 animate-fade-in-left">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse-glow">
-              <Scissors className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold gradient-text">EmbroidCraft</span>
+            <Image src={'/logo.png'} width={20} height={15} className="w-20 h-14" alt=""></Image>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8 animate-fade-in-up">
@@ -77,7 +74,7 @@ export default function LandingPage() {
             <Button variant="ghost" className="hidden md:inline-flex hover:scale-105 transition-transform duration-300">
               Sign In
             </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 hover-glow">
+            <Button className="bg-gradient-to-r from-blue-600 to-[#51b9e5] hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300 hover-glow">
               Order Now
             </Button>
           </div>
@@ -382,63 +379,28 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white relative overflow-hidden">
+      <section className=" md:py-32 bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Embroidery+Pattern')] opacity-5 parallax"></div>
-        <div className="container px-4 md:px-6 relative">
+        <div className="flex  justify-center items-center flex-col md:px-6 relative">
           <ScrollAnimation>
-            <div className="text-center space-y-4 mb-16">
+            <div className="text-center space-y-2 mb-16">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white gradient-text">
                 HOW DOES IT WORK
               </h2>
             </div>
           </ScrollAnimation>
 
-          <div className="grid gap-12 lg:grid-cols-2 items-start">
-            <ScrollAnimation delay={200}>
-              <div className="space-y-8">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-white">
-                    Add to Cart and
-                    <br />
-                    Customize with Ease!
-                  </h3>
-                  <p className="text-blue-200 text-lg">
-                    Our tools are user-centered that you quickly select, customize, and order embroidery services that
-                    fit your specific needs and brand requirements.
-                  </p>
+          <div className="flex   justify-center items-center">
 
-                  <div className="space-y-4">
-                    {[
-                      "Add products to cart",
-                      "Select your preferred materials and colors",
-                      "Upload your digital design for approval",
-                      "Your order is produced and shipped",
-                    ].map((step, index) => (
-                      <div
-                        key={index}
-                        className={`flex items-start space-x-3 animate-fade-in-left stagger-${index + 1} hover:translate-x-2 transition-transform duration-300`}
-                      >
-                        <div className="w-2 h-2 rounded-full bg-pink-400 mt-2 flex-shrink-0 animate-pulse"></div>
-                        <p className="text-blue-100">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold hover-lift animate-shimmer">
-                    GET STARTED →
-                  </Button>
-                </div>
-              </div>
-            </ScrollAnimation>
 
             <ScrollAnimation delay={400}>
               <div className="space-y-8">
                 <div className="space-y-6">
                   <h3 className="text-2xl font-bold text-white">
                     Simple Steps to Bring
-                    <br />
+
                     Your Custom Designs
-                    <br />
+
                     to Life!
                   </h3>
                   <p className="text-blue-200 text-lg">
@@ -762,7 +724,7 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+      {/* <section className="py-20 md:py-32 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Pattern')] opacity-10 parallax"></div>
         <div className="container px-4 md:px-6 relative">
           <ScrollAnimation>
@@ -796,7 +758,7 @@ export default function LandingPage() {
             </div>
           </ScrollAnimation>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-16">
@@ -804,11 +766,8 @@ export default function LandingPage() {
           <ScrollAnimation>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               <div className="space-y-4">
-                <div className="flex items-center space-x-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 animate-pulse-glow">
-                    <Scissors className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-xl font-bold gradient-text">EmbroidCraft</span>
+                <div className="flex items-center space-x-2 animate-fade-in-left">
+                  <Image src={'/logo.png'} width={20} height={15} className="w-20 h-14" alt=""></Image>
                 </div>
                 <p className="text-gray-400 max-w-xs">
                   Professional custom embroidery services for businesses, organizations, and individuals. Quality
