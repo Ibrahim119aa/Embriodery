@@ -20,6 +20,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ScrollAnimation } from "@/components/scroll-animation"
 import { useEffect, useState } from "react"
+import HowItWorks from "@/components/HowItWork"
 
 export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -82,77 +83,165 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 md:py-32">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Pattern')] opacity-5 parallax"></div>
-        <div className="container px-4 md:px-6 relative">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-[#51b9e5] py-20 md:py-32">
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Pattern')] opacity-5"></div>
+
+        {/* Floating pill buttons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 transform -rotate-12 animate-float">
+            <Badge className="bg-cyan-400 text-black hover:bg-cyan-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              # LEATHER PATCHES
+            </Badge>
+          </div>
+          <div className="absolute top-32 right-20 transform rotate-12 animate-float" style={{ animationDelay: "0.5s" }}>
+            <Badge className="bg-yellow-400 text-black hover:bg-yellow-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              # SOFT ENAMEL PINS
+            </Badge>
+          </div>
+          <div className="absolute top-60 left-20 transform -rotate-6 animate-float" style={{ animationDelay: "1s" }}>
+            <Badge className="bg-pink-400 text-black hover:bg-pink-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              #WOVEN PATCHES
+            </Badge>
+          </div>
+          <div
+            className="absolute bottom-40 right-10 transform rotate-6 animate-float"
+            style={{ animationDelay: "1.5s" }}
+          >
+            <Badge className="bg-green-400 text-black hover:bg-green-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              # HARD ENAMEL COINS
+            </Badge>
+          </div>
+          <div className="absolute bottom-60 left-16 transform -rotate-3 animate-float" style={{ animationDelay: "2s" }}>
+            <Badge className="bg-orange-400 text-black hover:bg-orange-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              # WOVEN LABELS
+            </Badge>
+          </div>
+          <div
+            className="absolute bottom-20 right-32 transform rotate-9 animate-float"
+            style={{ animationDelay: "2.5s" }}
+          >
+            <Badge className="bg-purple-400 text-white hover:bg-purple-300 text-sm px-4 py-2 rounded-full shadow-lg">
+              # EMBROIDERY PATCHES
+            </Badge>
+          </div>
+        </div>
+
+        <div className="container px-4 md:px-6 relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge
                   variant="secondary"
-                  className={`bg-blue-100 text-blue-700 hover:bg-blue-200 animate-scale-in ${isLoaded ? "stagger-1" : ""}`}
+                  className={`bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm animate-scale-in ${isLoaded ? "stagger-1" : ""}`}
                 >
                   🧵 Premium Quality Embroidery
                 </Badge>
-                <h1
-                  className={`text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in-up ${isLoaded ? "stagger-2" : ""}`}
-                >
-                  Custom Embroidery
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent gradient-text">
-                    {" "}
-                    Made Perfect
-                  </span>
-                </h1>
-                <p className={`text-xl text-gray-600 max-w-2xl animate-fade-in-up ${isLoaded ? "stagger-3" : ""}`}>
+                <div className={`space-y-2 animate-fade-in-up ${isLoaded ? "stagger-2" : ""}`}>
+                  <p className="text-white/90 text-lg font-medium tracking-wide">{"LET'S MAKE YOUR BRAND UNSTOPPABLE"}</p>
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-white">
+                    Custom Clothing Labels
+                    <span className="block text-white">{"& Patches That Demand"}</span>
+                    <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                      Attention!
+                    </span>
+                  </h1>
+                </div>
+                <p className={`text-xl text-white/80 max-w-2xl animate-fade-in-up ${isLoaded ? "stagger-3" : ""}`}>
                   Transform your ideas into stunning embroidered products. From corporate apparel to custom accessories,
                   we bring your designs to life with precision and quality.
                 </p>
               </div>
-
               <div className={`flex flex-col sm:flex-row gap-4 animate-fade-in-up ${isLoaded ? "stagger-4" : ""}`}>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 hover-lift animate-shimmer"
+                  className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-6 hover-lift font-semibold shadow-xl"
                 >
                   Start Your Order
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-transparent hover-lift">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white/10 hover-lift"
+                >
                   <Play className="mr-2 h-5 w-5" />
                   View Gallery
                 </Button>
               </div>
-
               <div
-                className={`flex items-center space-x-8 text-sm text-gray-600 animate-fade-in-up ${isLoaded ? "stagger-5" : ""}`}
+                className={`flex items-center space-x-8 text-sm text-white/90 animate-fade-in-up ${isLoaded ? "stagger-5" : ""}`}
               >
                 <div className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-green-300" />
                   <span>Free design consultation</span>
                 </div>
                 <div className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-green-300" />
                   <span>Fast turnaround</span>
                 </div>
                 <div className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-green-300" />
                   <span>Quality guarantee</span>
                 </div>
               </div>
             </div>
-
             <div className={`relative animate-fade-in-right ${isLoaded ? "stagger-3" : ""}`}>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-3xl opacity-20 animate-float"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-yellow-300/20 rounded-3xl blur-3xl opacity-60 animate-float"></div>
               <Image
-                src="/placeholder.svg?height=600&width=800&text=Embroidery+Showcase"
+                src="/placeholder.svg?height=600&width=800&text=Custom+Embroidery+Showcase"
                 alt="Custom Embroidery Showcase"
                 width={800}
                 height={600}
-                className="relative rounded-2xl shadow-2xl hover-lift"
+                className="relative rounded-2xl shadow-2xl hover-lift border border-white/20"
               />
             </div>
           </div>
         </div>
+
+        <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+          50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        .animate-scale-in {
+          animation: scaleIn 0.5s ease-out forwards;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .animate-fade-in-right {
+          animation: fadeInRight 0.8s ease-out forwards;
+        }
+        .hover-lift {
+          transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+          transform: translateY(-2px);
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInRight {
+          from { opacity: 0; transform: translateX(30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
       </section>
 
       {/* Services Section */}
@@ -172,14 +261,14 @@ export default function LandingPage() {
             </div>
           </ScrollAnimation>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <ScrollAnimation delay={100}>
               <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift hover-glow">
                 <CardHeader>
                   <div className="h-12 w-12 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-4 animate-float">
                     <Scissors className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>Custom Embroidery</CardTitle>
+                  <CardTitle>Custom Patches</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
@@ -228,24 +317,7 @@ export default function LandingPage() {
               </Card>
             </ScrollAnimation>
 
-            <ScrollAnimation delay={400}>
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift hover-glow">
-                <CardHeader>
-                  <div
-                    className="h-12 w-12 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mb-4 animate-float"
-                    style={{ animationDelay: "1.5s" }}
-                  >
-                    <Award className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle>Quality Guarantee</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Premium materials and expert craftsmanship with 100% satisfaction guarantee on all orders.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
+
           </div>
         </div>
       </section>
@@ -378,79 +450,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className=" md:py-32 bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Embroidery+Pattern')] opacity-5 parallax"></div>
-        <div className="flex  justify-center items-center flex-col md:px-6 relative">
-          <ScrollAnimation>
-            <div className="text-center space-y-2 mb-16">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white gradient-text">
-                HOW DOES IT WORK
-              </h2>
-            </div>
-          </ScrollAnimation>
-
-          <div className="flex   justify-center items-center">
-
-
-            <ScrollAnimation delay={400}>
-              <div className="space-y-8">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-bold text-white">
-                    Simple Steps to Bring
-
-                    Your Custom Designs
-
-                    to Life!
-                  </h3>
-                  <p className="text-blue-200 text-lg">
-                    Whether you're creating custom apparel or promotional items, our streamlined embroidery process
-                    makes it simple to bring your vision to reality.
-                  </p>
-
-                  <div className="space-y-6">
-                    {[
-                      {
-                        title: "Upload your designs",
-                        description: "Share your logo, artwork, or design ideas with our team",
-                      },
-                      {
-                        title: "Receive your digital proof for approval",
-                        description: "Review and approve your digitized embroidery design",
-                      },
-                      {
-                        title: "Make the payment",
-                        description: "Secure payment processing with flexible payment options",
-                      },
-                      {
-                        title: "Your order is produced and shipped",
-                        description: "Professional embroidery and fast, reliable shipping",
-                      },
-                    ].map((step, index) => (
-                      <div
-                        key={index}
-                        className={`flex items-start space-x-4 animate-fade-in-right stagger-${index + 1} hover:translate-x-2 transition-transform duration-300`}
-                      >
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0 animate-pulse-glow">
-                          {index + 1}
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-white mb-1">{step.title}</h4>
-                          <p className="text-blue-200 text-sm">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold hover-lift animate-shimmer">
-                    GET STARTED →
-                  </Button>
-                </div>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
+      <HowItWorks/>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 md:py-32 bg-gray-50">
