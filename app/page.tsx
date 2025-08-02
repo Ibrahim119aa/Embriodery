@@ -15,11 +15,12 @@ import {
   Clock,
   Users,
   Shield,
-} from "lucide-react"
+} from "lucide-react";
+const AboutUsSection = React.lazy(() => import("@/components/AboutUsSection"));
 import Image from "next/image"
 import Link from "next/link"
 import { ScrollAnimation } from "@/components/scroll-animation"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import HowItWorks from "@/components/HowItWork"
 
 export default function LandingPage() {
@@ -69,6 +70,12 @@ export default function LandingPage() {
             >
               Contact
             </Link>
+            <Link
+              href="#about-us"
+              className="text-sm font-medium hover:text-blue-600 transition-all duration-300 hover:scale-105"
+            >
+              About Us
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4 animate-fade-in-right">
@@ -87,7 +94,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200&text=Pattern')] opacity-5"></div>
 
         {/* Floating pill buttons */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 transform -rotate-12 animate-float">
             <Badge className="bg-cyan-400 text-black hover:bg-cyan-300 text-sm px-4 py-2 rounded-full shadow-lg">
               # LEATHER PATCHES
@@ -111,11 +118,7 @@ export default function LandingPage() {
               # HARD ENAMEL COINS
             </Badge>
           </div>
-          <div className="absolute bottom-60 left-16 transform -rotate-3 animate-float" style={{ animationDelay: "2s" }}>
-            <Badge className="bg-orange-400 text-black hover:bg-orange-300 text-sm px-4 py-2 rounded-full shadow-lg">
-              # WOVEN LABELS
-            </Badge>
-          </div>
+
           <div
             className="absolute bottom-20 right-32 transform rotate-9 animate-float"
             style={{ animationDelay: "2.5s" }}
@@ -124,7 +127,7 @@ export default function LandingPage() {
               # EMBROIDERY PATCHES
             </Badge>
           </div>
-        </div>
+        </div> */}
 
         <div className="container px-4 md:px-6 relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -184,6 +187,11 @@ export default function LandingPage() {
                   <span>Quality guarantee</span>
                 </div>
               </div>
+              {/* <div className="absolute  left-16 animate-swing-horizontal" style={{ animationDelay: "2s" }}>
+                <Badge className="bg-orange-400 text-black hover:bg-orange-300 text-sm px-4 py-2 rounded-full shadow-lg">
+                  # WOVEN LABELS
+                </Badge>
+              </div> */}
             </div>
             <div className={`relative animate-fade-in-right ${isLoaded ? "stagger-3" : ""}`}>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-yellow-300/20 rounded-3xl blur-3xl opacity-60 animate-float"></div>
@@ -199,6 +207,17 @@ export default function LandingPage() {
         </div>
 
         <style jsx>{`
+
+        @keyframes swing-horizontal {
+  0% { transform: translateX(0) rotate(-3deg); }
+  50% { transform: translateX(10px) rotate(3deg); }
+  100% { transform: translateX(0) rotate(-3deg); }
+}
+
+.animate-swing-horizontal {
+  animation: swing-horizontal 2s ease-in-out infinite;
+}
+
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
           50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
@@ -261,7 +280,7 @@ export default function LandingPage() {
             </div>
           </ScrollAnimation>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid max-w-6xl mx-auto gap-8 md:grid-cols-2 lg:grid-cols-2">
             <ScrollAnimation delay={100}>
               <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift hover-glow">
                 <CardHeader>
@@ -273,6 +292,7 @@ export default function LandingPage() {
                 <CardContent>
                   <p className="text-gray-600">
                     High-quality custom embroidery on apparel, accessories, and promotional items with precision
+                    stitching High-quality custom embroidery on apparel, accessories, and promotional items with precision
                     stitching.
                   </p>
                 </CardContent>
@@ -288,34 +308,19 @@ export default function LandingPage() {
                   >
                     <Palette className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>Design Services</CardTitle>
+                  <CardTitle>Vector Art</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Professional design consultation and digitization services to bring your vision to life perfectly.
+                    Professional design consultation and digitization services to bring your vision to life perfectly
+                    Professional design consultation and digitization services to bring your vision to life perfectly
+                    Professional design consultation and digitization services.
+
                   </p>
                 </CardContent>
               </Card>
             </ScrollAnimation>
 
-            <ScrollAnimation delay={300}>
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift hover-glow">
-                <CardHeader>
-                  <div
-                    className="h-12 w-12 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mb-4 animate-float"
-                    style={{ animationDelay: "1s" }}
-                  >
-                    <Truck className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle>Fast Delivery</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">
-                    Quick turnaround times with reliable shipping options to meet your deadlines and expectations.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
 
 
           </div>
@@ -450,7 +455,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <HowItWorks/>
+      <HowItWorks />
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 md:py-32 bg-gray-50">
@@ -761,6 +766,9 @@ export default function LandingPage() {
       </section> */}
 
       {/* Footer */}
+      <div id="about-us">
+        <AboutUsSection />
+      </div>
       <footer id="contact" className="bg-gray-900 text-white py-16">
         <div className="container px-4 md:px-6">
           <ScrollAnimation>
